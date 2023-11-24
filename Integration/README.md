@@ -33,3 +33,14 @@ Although protection is in place to check for duplicate items, if called rapidly 
 
 **b: Weaknesses:**
 - Identify and describe any weaknesses that the solution might have in a text file.
+
+
+### ANSWER FOR MULTIPLE SERVERS CONTAINING ItemIntegrationService.
+### 2a(ans) - in Program.cs using memorycache.
+
+**b: Weaknesses :**
+
+1(Inconsistency)- In distributed systems, maintaining cache consistency can be challenging. If multiple instances of the service are running, there might be delays or inconsistencies in updating the cache across all nodes.
+2(Loss of Data)- The simple sliding expiration policy used in the example may not be suitable for all scenarios. Items might be evicted from the cache even if they are still relevant or the processed content is lost if a server restarts or if the cache is cleared.
+3(Latency)- If there is latency or network issues between different servers running the service, it might affect the performance and reliability of the cache updates.
+4(Scalability)- The solution might face challenges in terms of scalability, especially if the number of processed items grows significantly. The cache might become a bottleneck.
